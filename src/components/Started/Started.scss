@@ -1,0 +1,27 @@
+.wrap-started-content {
+  width: 20rem;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  span {
+    font-size: 17rem;
+    color: var(--brw);
+  }
+  .btn-start {
+    font-size: 1.5rem;
+    padding: 1rem 4rem;
+    border-radius: 100px;
+    color: white;
+    background: var(--brw);
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    &:hover {
+        background-color: black;
+    }
+  }
+}
