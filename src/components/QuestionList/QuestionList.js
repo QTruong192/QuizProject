@@ -22,7 +22,7 @@ const QuestionList = ({
     <section className="wrap-list-content">
       <div className="btn-close" onClick={exitQuiz}><RiCloseLine/></div>
       <h2>
-        Câu hỏi {currentQuestionIndex + 1}/{questions.length}
+        Question {currentQuestionIndex + 1}/{questions.length}
       </h2>
       <h3>{question.question}</h3>
       <div className="quiz-list">

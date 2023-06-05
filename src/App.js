@@ -19,12 +19,7 @@ function App() {
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
 
-  useEffect(() => {
-    if (quizStarted) {
-      fetchQuestions();
-    }
-  }, [quizStarted]);
-
+  //fetch Api
   const fetchQuestions = async () => {
     setIsLoading(true);
     try {
@@ -39,10 +34,17 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    if (quizStarted) {
+      fetchQuestions();
+    }
+  }, [quizStarted]);
+
+  //xử lý bắt đầu
   const startQuiz = () => {
     setQuizStarted(true);
   };
-
+  //xử lý nút thoát
   const exitQuiz = () => {
     setQuizStarted(false);
     setQuizCompleted(false);
@@ -51,7 +53,7 @@ function App() {
     setSelectedAnswer(null);
     setQuestions([]);
   };
-
+  // xử lý khi bấm câu hỏi tiếp theo
   const goToNextQuestion = () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
@@ -60,13 +62,13 @@ function App() {
       setQuizCompleted(true);
     }
   };
-
+  //xử lý khi chọn câu hỏi
   const handleAnswerSelection = (answer, index) => {
     setSelectedAnswer(answer);
     setSelectedLabelIndex(index);
     setCheckButtonColor("active");
   };
-
+  // kiểm tra câu hỏi
   const checkAnswer = () => {
     if (selectedAnswer === null) {
       return; // Không cho phép bấm nút nếu không chọn câu trả lời
